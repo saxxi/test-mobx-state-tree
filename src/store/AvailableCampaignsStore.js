@@ -1,6 +1,6 @@
 import { types, flow } from "mobx-state-tree";
-import { CampaignsApi } from "../../services/Api";
-import { Campaign } from "../base/Campaign";
+import { CampaignsApi } from "../services/Api";
+import { Campaign } from "./base/Campaign";
 
 export const AvailableCampaignsStore = types.model('AvailableCampaignsStore', {
   list: types.array(Campaign),

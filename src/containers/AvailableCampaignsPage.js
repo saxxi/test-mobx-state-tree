@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
+import { RandomComponent } from './RandomComponent';
 
 const AvailableCampaigns = inject('campaignsStore', 'auth')(
   observer(({ campaignsStore, auth }) => {
@@ -13,6 +14,7 @@ const AvailableCampaigns = inject('campaignsStore', 'auth')(
             {campaignsStore.availableCampaigns.list.map(campaign => <li key={campaign.id}>{campaign.name}</li>)}
           </ul>
           <p>(injected auth, you are {auth.currentUser.name})</p>
+          <RandomComponent />
         </div>}
       </div>
     );

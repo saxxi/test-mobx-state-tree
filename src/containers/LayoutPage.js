@@ -1,11 +1,13 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import AvailableCampaignsPage from './AvailableCampaignsPage';
+import { NotificationLister } from '../components/NotificationLister';
 
 const LayoutPage = inject('auth', 'campaignsStore')(
-  observer(({ campaignsStore, auth }) => {
+  observer(({ auth, campaignsStore }) => {
     return (
       <div>
+        <NotificationLister />
         <p>Welcome "{auth.currentUser.name}"!</p>
         <div>
           Menu:

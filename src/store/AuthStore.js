@@ -1,6 +1,6 @@
 import { types, flow } from 'mobx-state-tree';
-import { UserStore } from './UserStore';
-import { AuthApi } from '../../services/Api';
+import { UserStore } from './base/UserStore';
+import { AuthApi } from '../services/Api';
 
 export const AuthStore = types.model({
   authToken: types.maybe(types.string),

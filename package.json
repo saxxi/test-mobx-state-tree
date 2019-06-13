@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-syntax-decorators": "^7.2.0",
+    "mobx": "^5.10.1",
+    "mobx-react": "^6.0.3",
+    "mobx-state-tree": "^3.14.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "recompose": "^0.30.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { observer, inject } from 'mobx-react';
+import GuestPage from './containers/GuestPage';
+import LayoutPage from './containers/LayoutPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css'
 
-export default App;
+const App = inject('auth')(
+  observer(({ auth }) => {
+    return (
+      <div>
+        {auth.currentUser ? <LayoutPage /> : <GuestPage />}
+      </div>
+    );
+  })
+);
+
+export default App

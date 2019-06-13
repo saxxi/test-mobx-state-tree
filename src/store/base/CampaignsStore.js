@@ -1,14 +1,14 @@
 import { types } from "mobx-state-tree";
 
-import { Campaigns } from '../collection/Campaigns';
+import { AvailableCampaignsStore } from '../collection/AvailableCampaignsStore';
 
 export const CampaignsStore = types.model('CampaignsStore', {
-  campaigns: types.maybe(Campaigns),
+  availableCampaigns: types.maybe(AvailableCampaignsStore),
 })
 .actions(self => {
   return {
     loadCampaigns: () => {
-      self.campaigns = Campaigns.create()
+      self.availableCampaigns = AvailableCampaignsStore.create()
     },
   }
 })

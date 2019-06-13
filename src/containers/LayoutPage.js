@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
-import CampaignsPage from './CampaignsPage';
+import AvailableCampaignsPage from './AvailableCampaignsPage';
 
 const LayoutPage = inject('auth', 'campaignsStore')(
   observer(({ campaignsStore, auth }) => {
@@ -21,7 +21,7 @@ const LayoutPage = inject('auth', 'campaignsStore')(
           </ul>
         </div>
         <div>
-          {campaignsStore.campaigns && <CampaignsPage />}
+          {campaignsStore.availableCampaigns && <AvailableCampaignsPage />}
         </div>
       </div>
     );

@@ -1,0 +1,22 @@
+import React from 'react';
+import { observer, inject } from 'mobx-react';
+
+const AvailableCampaigns = inject('campaignsStore', 'auth')(
+  observer(({ campaignsStore, auth }) => {
+    return (
+      <div>
+        {campaignsStore.availableCampaigns.state === 'loading' && <div>Loading...</div>}
+        {campaignsStore.availableCampaigns.state === 'error' && <div>An error occured while fetching your data.</div>}
+        {campaignsStore.availableCampaigns.state === 'loaded' && <div>
+          <p>Campaign list here</p>
+          <ul>
+            {campaignsStore.availableCampaigns.list.map(campaign => <li key={campaign.id}>{campaign.name}</li>)}
+          </ul>
+          <p>(injected auth, you are {auth.currentUser.name})</p>
+        </div>}
+      </div>
+    );
+  })
+);
+
+export default AvailableCampaigns;

@@ -11,13 +11,13 @@ export const Campaigns = types.model({
   return {
     afterCreate: flow(function* () {
       self.state = 'loading';
-      const pendingRequest = CampaignsApi.load();
+      pendingRequest = CampaignsApi.load();
       const response = yield pendingRequest;
       self.state = 'loaded';
       self.list = response.data;
     }),
     beforeDestroy: () => {
-      pendingRequest.abort() // <- this is awesome
+      pendingRequest.cancel() // <- this is awesome
     },
   }
 })

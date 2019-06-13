@@ -1,3 +1,9 @@
+import Promise from 'bluebird'
+
+Promise.config({
+  cancellation: true,
+});
+
 export const CampaignsApi = {
   load: () => new Promise(resolve => {
     const res = {

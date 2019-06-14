@@ -2,17 +2,20 @@ import { wiretap, inspect } from 'mobx-wiretap/mst';
 import { AuthStore } from './AuthStore';
 import { CampaignsStore } from './base/CampaignsStore';
 import { NotificationsStore } from './utils/NotificationsStore';
+import { UserSettingsStore } from './UserSettingsStore';
 
 // const CombinedStore = types.compose(Store1, Store2).named('CombinedStore'); // Merges the two stores
 
 const auth = AuthStore.create();
 const campaignsStore = CampaignsStore.create()
 const notificationsStore = NotificationsStore.create()
+const userSettingsStore = UserSettingsStore.create()
 
 wiretap('Todo app');
 inspect('auth', auth, ['login']);
 inspect('campaignsStore', campaignsStore, ['loadCampaigns']);
 inspect('notificationsStore', notificationsStore, ['addNotification', 'removeNotification']);
+inspect('userSettingsStore', userSettingsStore, ['updateSettings']);
 
 export const store = {
   auth,
@@ -22,5 +25,5 @@ export const store = {
   // sends,
   // activity,
   // inventory,
-  // settings,
+  userSettingsStore,
 };

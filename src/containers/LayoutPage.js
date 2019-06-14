@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { observer, inject } from 'mobx-react';
 import AvailableCampaignsPage from './AvailableCampaignsPage';
 import { NotificationLister } from '../components/NotificationLister';
+import { SettingsPage } from './SettingsPage';
 
-const LayoutPage = inject('auth', 'campaignsStore')(
-  observer(({ auth, campaignsStore }) => {
+const LayoutPage = inject('auth')(
+  observer(({ auth }) => {
+    const [currentPage, setPage] = useState(null);
+
     return (
       <div>
         <NotificationLister />
@@ -12,19 +15,16 @@ const LayoutPage = inject('auth', 'campaignsStore')(
         <div>
           Menu:
           <ul>
-            <li>
-              <span onClick={() => campaignsStore.loadCampaigns()} className='btn'>load campaigns</span>
-            </li>
+            <li><span onClick={() => setPage('availableCampaignsPage')} className='btn'>Available Campaigns</span></li>
             <li>sends</li>
             <li>activity</li>
             <li>inventory</li>
-            <li>settings</li>
+            <li><span onClick={() => setPage('settingsPage')} className='btn'>Settings</span></li>
             <li>...</li>
           </ul>
         </div>
-        <div>
-          {campaignsStore.availableCampaigns && <AvailableCampaignsPage />}
-        </div>
+        {currentPage === 'availableCampaignsPage' && <AvailableCampaignsPage />}
+        {currentPage === 'settingsPage' && <SettingsPage />}
       </div>
     );
   })

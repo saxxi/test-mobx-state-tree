@@ -4,6 +4,12 @@ import { RandomComponent } from './RandomComponent';
 
 const AvailableCampaigns = inject('campaignsStore', 'auth')(
   observer(({ campaignsStore, auth }) => {
+
+    if (!campaignsStore.availableCampaigns) {
+      campaignsStore.loadCampaigns()
+      return null;
+    }
+
     return (
       <div>
         {campaignsStore.availableCampaigns.state === 'loading' && <div>Loading...</div>}

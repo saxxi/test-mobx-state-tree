@@ -6615,6 +6615,11 @@ mobx-state-tree@^3.14.0:
   resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-3.14.0.tgz#8611051b93a71439db161b8ec855870cfd7e678d"
   integrity sha512-obQ+LPCff4LqX86ghQpYIVAtCmps7ewCxIds/EmSxBULj9+7Qs2v4YEbvUeWymp/Sj3dPcvDjIMMdIRz6sUE5Q==
 
+mobx-wiretap@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/mobx-wiretap/-/mobx-wiretap-0.13.1.tgz#abf830fb22a8a7cd0e05c226c02837df14977574"
+  integrity sha512-nTVGzq27HU8f5tNFTeUwjINznUbgJFVXgPr/+5LUV8UpngmzXERaInR8dc43hH2SLI8rCOF2lN9scI/OLgPwJw==
+
 mobx@^5.10.1:
   version "5.10.1"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.10.1.tgz#eb0e2ff76fe376d0a42c941533260deeae5956d8"

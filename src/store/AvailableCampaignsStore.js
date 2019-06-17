@@ -1,4 +1,4 @@
-import { types, flow } from "mobx-state-tree";
+import { types, flow, getEnv } from "mobx-state-tree";
 import { CampaignsApi } from "../services/Api";
 import { Campaign } from "./base/Campaign";
 
@@ -15,6 +15,7 @@ export const AvailableCampaignsStore = types.model('AvailableCampaignsStore', {
       const response = yield pendingRequest;
       self.state = 'loaded';
       self.list = response.data;
+      getEnv(self).notificationsStore.addNotification({message: 'I have loaded the campaigns'})
     }),
     beforeDestroy: () => {
       pendingRequest.cancel() // <- this is awesome

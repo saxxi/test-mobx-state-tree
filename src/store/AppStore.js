@@ -6,10 +6,12 @@ import { UserSettingsStore } from './UserSettingsStore';
 
 // const CombinedStore = types.compose(Store1, Store2).named('CombinedStore'); // Merges the two stores
 
-const auth = AuthStore.create();
-const campaignsStore = CampaignsStore.create()
-const notificationsStore = NotificationsStore.create()
-const userSettingsStore = UserSettingsStore.create()
+export const notificationsStore = NotificationsStore.create()
+export const auth = AuthStore.create();
+export const campaignsStore = CampaignsStore.create({}, {
+  notificationsStore,
+})
+export const userSettingsStore = UserSettingsStore.create()
 
 wiretap('Todo app');
 inspect('auth', auth, ['login']);

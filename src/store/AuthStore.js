@@ -22,9 +22,9 @@ export const AuthStore = types.model({
     const res = yield AuthApi.loginViaJWT(jwt);
     self.currentUser = res.data;
   }),
-  logout: flow(function* () {
+  logout () {
     window.localStorage.removeItem('jwt');
-    self.authToken = undefined
-    self.currentUser = undefined
-  }),
+    self.authToken = undefined;
+    self.currentUser = undefined;
+  },
 }));

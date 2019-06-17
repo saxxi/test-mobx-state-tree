@@ -1,22 +1,21 @@
-import React, { useState } from 'react';
-import SettingsForm from "../components/SettingsForm";
+import React from 'react';
+import SettingsForm from '../components/SettingsForm';
 import { inject, observer } from 'mobx-react';
 
 export const SettingsPage = inject('userSettingsStore')(
   observer(({ userSettingsStore }) => {
-    const [userSettings, setUserSettings] = useState(userSettingsStore.settings)
     const onSubmit = (settings, { setSubmitting }) => {
       setTimeout(() => {
-        setUserSettings(settings)
+        userSettingsStore.updateSettings(settings)
         setSubmitting(false);
       }, 500);
     }
 
     return <div>
       <SettingsForm
-        initialValues={userSettings}
+        initialValues={userSettingsStore.settings}
         onSubmit={onSubmit} />
-      {JSON.stringify(userSettings)}
+      {JSON.stringify(userSettingsStore.settings)}
     </div>;
   })
 );

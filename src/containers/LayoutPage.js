@@ -21,6 +21,7 @@ const LayoutPage = inject('auth')(
             <li>inventory</li>
             <li><span onClick={() => setPage('settingsPage')} className='btn'>Settings</span></li>
             <li>...</li>
+            <li><span onClick={() => auth.logout()} className='btn'>Exit</span></li>
           </ul>
         </div>
         {currentPage === 'availableCampaignsPage' && <AvailableCampaignsPage />}

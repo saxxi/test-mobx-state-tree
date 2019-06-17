@@ -29,20 +29,23 @@ export const CompanyApi = {
   }),
 }
 
-export const AuthApi = {
-  login: (username, password) => new Promise(resolve => {
-    const res = {
-      data: {
-        name: 'Mark',
-        token: 'Lapierre',
-        username,
-        address: {
-          city: 'London',
-          country: 'UK',
-        },
-        gender: 'M',
+const genericAuth = new Promise(resolve => {
+  const res = {
+    data: {
+      name: 'Mark',
+      token: 'ey-the-token123-456',
+      username: 'mark@gmail.com',
+      address: {
+        city: 'London',
+        country: 'UK',
       },
-    }
-    setTimeout(resolve.bind(null, res), 500)
-  }),
+      gender: 'M',
+    },
+  }
+  setTimeout(resolve.bind(null, res), 500)
+})
+
+export const AuthApi = {
+  login: (username, password) => genericAuth,
+  loginViaJWT: (jwt) => genericAuth,
 }
